@@ -3,15 +3,16 @@
 {% block title %}Detale klienta{% endblock title %}
 
 {% block body %}
+    <div><a href="{% url 'customer_detail' contract.customer.id %}"><i class="bi bi-arrow-left"></i></a></div>
     <div>Numer: {{ contract.number }}</div>
     <div>Data rozpoczęcia: {{ contract.start_date }}</div>
     <div>Data zakońćzenia: {{ contract.end_date }}</div>
     <div>cena za kilogram: {{ contract.price_for_kg }}</div>
     <div>Faktura/y do umowy:</div>
     {% for invoice in contract.invoice_set.all %}
-        <div> - <a href="{% url 'invoice_detail' invoice.id %}">{{ invoice.number }}</a>
-                <a href="{% url 'invoice_update' invoice.id %}">Edytuj</a>
-                    <a href="{% url 'invoice_delete' invoice.id %}">Usuń</a>
+        <div> - <a href="{% url 'invoice_detail' invoice.id %}">{{ invoice.number }}</a> &nbsp
+                <a href="{% url 'invoice_update' invoice.id %}"><i class="bi bi-pencil"></i></a> &nbsp
+                    <a href="{% url 'invoice_delete' invoice.id %}"><i class="bi bi-trash3-fill"></i></a>
         </div>
     {% endfor %}
     <br/><br/>

@@ -3,6 +3,7 @@
 {% block title %}Detale faktury{% endblock title %}
 
 {% block body %}
+    <div><a href="{% url 'contract_detail' invoice.contract_id.id %}"><i class="bi bi-arrow-left"></i></a></div>
     <div>Numer: {{ invoice.number }}</div>
     <div>Data wpłynięcia: {{ invoice.date_of_receipt }}</div>
     <div>Data płatności: {{ invoice.payment_date }}</div>

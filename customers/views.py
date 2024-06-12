@@ -200,7 +200,7 @@ def contract_update(request, pk):
         form = ContractModelForm(request.POST, instance=contract)
         if form.is_valid():
             form.save()
-            return redirect("customer_list")
+            return redirect("contract_detail", pk)
 
         ctx = {
             "form": form,
